@@ -1,26 +1,40 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is a health & fitness app that tracks your diet and give you meal plans which best fit you.
 
-## How to use this template
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+## Features
 
-### With the Ionic CLI:
+- [ ] Scan the bar code?
+- [ ] Take photo and parse the Nutrition Facts panels？
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
 
-Then, to run it, cd into `myBlank` and run:
+## Resources
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+### Related Apps in Market
 
-Substitute ios for android if not on a Mac.
+[GET INTO SHAPE WITH THE BEST IPHONE FITNESS APPS](https://www.digitaltrends.com/mobile/best-health-and-fitness-apps-for-iphone/)
 
+[Lifesum – Inspiring healthy lifestyle app](https://itunes.apple.com/au/app/lifesum-inspiring-healthy-lifestyle-app/id286906691?mt=8&ign-mpt=uo%3D4)
+
+[8fit - Fitness & Nutrition plans, health coach](https://itunes.apple.com/au/app/8fit-fitness-nutrition-plans-health-coach/id866617777?mt=8)
+
+### Tools
+
+[Ionic](http://ionicframework.com)
+
+[Ionic Creator](https://creator.ionic.io/app/dashboard/projects)
+
+### Food Recognition
+
+[food2vec](https://altosaar.github.io/food2vec/)
+
+[How to train your own model for CoreML](http://reza.codes/2017-07-29/how-to-train-your-own-dataset-for-coreml/)
+
+[Mining Discriminative Components with Random Forests](https://www.vision.ee.ethz.ch/datasets_extra/food-101/static/bossard_eccv14_food-101.pdf)
+
+[food-101-keras](https://github.com/stratospark/food-101-keras)
+
+### Style Guide
+
+[GitHub Flavored Markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
