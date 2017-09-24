@@ -28,8 +28,11 @@ plugins/
 plugins/android.json
 plugins/ios.json
 www/
+papers/
 $RECYCLE.BIN/
 
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+Assignments.pdf
