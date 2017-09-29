@@ -7,11 +7,6 @@ import { ScanPage } from '../scan/scan';
 import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
 import { CameraPage } from '../camera/camera';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
 
 @Component({
   selector: 'page-search-results',
@@ -43,20 +38,5 @@ export class SearchResultsPage {
   }goToCamera(params){
     if (!params) params = {};
     this.navCtrl.push(CameraPage);
-  }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
-  }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
-  }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
-  }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
-  }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
   }
 }
