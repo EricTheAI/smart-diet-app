@@ -2,11 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { TodayPage } from '../today/today';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
-import { ScanPage } from '../scan/scan';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
 import { CameraPage } from '../camera/camera';
-
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 @Component({
   selector: 'page-scan',
   templateUrl: 'scan.html'
@@ -14,12 +12,33 @@ import { CameraPage } from '../camera/camera';
 export class ScanPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,private cameraPreview: CameraPreview) {
   }
-  goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
-  }goToToday(params){
+  initializePreview() {
+    // Make the width and height of the preview equal 
+    // to the width and height of the app's window
+    let cameraPreviewOpts: CameraPreviewOptions = {
+      x: 0,
+      y: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+      camera: 'rear',
+      tapPhoto: true,
+      previewDrag: true,
+      toBack: true,
+      alpha: 1
+    };
+  
+    this.cameraPreview.startCamera(cameraPreviewOpts).then(
+      (res) => {
+        console.log(res)
+      },
+      (err) => {
+        console.log(err)
+      });
+  }
+
+  goToToday(params){
     if (!params) params = {};
     this.navCtrl.push(TodayPage);
   }goToFoodConfirm(params){
