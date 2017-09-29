@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { TodayPage } from '../today/today';
+import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
 import { CameraPage } from '../camera/camera';
 import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
