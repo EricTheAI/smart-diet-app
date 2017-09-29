@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { TodayPage } from '../today/today';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ScanPage } from '../scan/scan';
 import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
@@ -17,15 +15,9 @@ export class SearchResultsPage {
   // should be each tab's root Page
   constructor(public navCtrl: NavController) {
   }
-  goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
-  }goToToday(params){
+  goToToday(params){
     if (!params) params = {};
     this.navCtrl.push(TodayPage);
-  }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
   }goToScan(params){
     if (!params) params = {};
     this.navCtrl.push(ScanPage);
