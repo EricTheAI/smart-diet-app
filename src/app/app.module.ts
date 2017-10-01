@@ -95,6 +95,7 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
   providers: [
     StatusBar,
     Camera,
+    CameraPreview,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
