@@ -31,7 +31,7 @@ Users.prototype = {
     register: function (req, res) {
         var self = this;
         var user = req.body;
-        user.tpye = "user"
+        user.type = "user"
         self.taskDao.addItem(user, function (err) {
             if (err) {
                 throw (err);

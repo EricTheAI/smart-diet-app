@@ -2,10 +2,10 @@ var DocumentDBClient = require('documentdb').DocumentClient;
 var config = require('./config');
 var TaskList = require('./routes/tasklist');
 var TaskDao = require('./models/taskDao');
+var Profile = require('./routes/userprofiles');
 
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -15,10 +15,8 @@ var Users = require('./routes/users');
 
 var app = express();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -34,6 +32,8 @@ var docDbClient = new DocumentDBClient(config.host, {
 var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
 var taskList = new TaskList(taskDao);
 var users = new Users(taskDao)
+var profiles = new Profile(taskDao)
+
 taskDao.init();
 
 app.get('/', taskList.showTasks.bind(taskList));
@@ -41,7 +41,7 @@ app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
 app.post('/login',users.login.bind(users))
 app.post('/register',users.register.bind(users))
-app.set('view engine', 'jade');
+app.post('/profile',profiles.update.bind(profiles))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
