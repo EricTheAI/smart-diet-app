@@ -26,7 +26,7 @@ import { ManuallyAddFoodPage } from '../pages/manually-add-food/manually-add-foo
 import { FlavorTestFinishPage } from '../pages/flavor-test-finish/flavor-test-finish';
 import { FlavorTestLoopPage } from '../pages/flavor-test-loop/flavor-test-loop';
 import { CameraPage } from '../pages/camera/camera';
-
+import { HttpModule } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -63,6 +63,7 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
