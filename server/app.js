@@ -3,7 +3,7 @@ var config = require('./config');
 var TaskList = require('./routes/tasklist');
 var TaskDao = require('./models/taskDao');
 var Profile = require('./routes/userprofiles');
-
+var Record = require('./routes/records')
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
@@ -33,6 +33,7 @@ var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
 var taskList = new TaskList(taskDao);
 var users = new Users(taskDao)
 var profiles = new Profile(taskDao)
+var records = new Record(taskDao)
 
 taskDao.init();
 
@@ -42,6 +43,7 @@ app.post('/completetask', taskList.completeTask.bind(taskList));
 app.post('/login',users.login.bind(users))
 app.post('/register',users.register.bind(users))
 app.post('/profile',profiles.update.bind(profiles))
+app.post('/fooddetect', records.fooddetect.bind(records))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
