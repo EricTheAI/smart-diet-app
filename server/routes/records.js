@@ -11,7 +11,36 @@ function Records(taskDao) {
 
 module.exports = Records;
 Records.prototype = {
-    fooddetect: function (req, res) {
+    foodDetect: function (req, res) {
+        var self = this;
+        var image = req.body['image']
+        var image_name = Date.now()
+        console.log(req.body)
+        console.log(image)
+        blobSvc.createAppendBlobFromText('images',image_name.toString() , image, function(error, result, response){
+            if(!error){
+                res.json({food:"banana"})
+            }else{
+                res.json({"result":error})
+            }
+          });
+        
+    },
+
+    createRecord: function (req, res) {
+        var self = this;
+        var record = req.body
+        self.taskDao.addItem(record, function (err) {
+            if (err) {
+                throw (err);
+                res.json({success:false})
+            }
+            res.json({success:true})
+        });
+        
+    },
+
+    getRecords: function (req, res) {
         var self = this;
         var image = req.body['image']
         var image_name = Date.now()

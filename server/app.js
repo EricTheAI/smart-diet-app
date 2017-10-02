@@ -43,7 +43,7 @@ app.post('/completetask', taskList.completeTask.bind(taskList));
 app.post('/login',users.login.bind(users))
 app.post('/register',users.register.bind(users))
 app.post('/profile',profiles.update.bind(profiles))
-app.post('/fooddetect', records.fooddetect.bind(records))
+app.post('/fooddetect', records.foodDetect.bind(records))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
