@@ -15,6 +15,7 @@ Records.prototype = {
         var self = this;
         var image = req.body['image']
         var image_name = Date.now()
+        console.log(image)
         blobSvc.createAppendBlobFromText('images',image_name.toString() , image, function(error, result, response){
             if(!error){
                 res.json({food:"banana"})
