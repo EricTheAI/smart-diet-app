@@ -1,12 +1,12 @@
 var DocumentDBClient = require('documentdb').DocumentClient;
 var async = require('async');
 
-function Users(taskDao) {
+function Food(taskDao) {
   this.taskDao = taskDao;
 }
 
-module.exports = Users;
-Users.prototype = {
+module.exports = Food;
+Food.prototype = {
     login: function (req, res) {
         var self = this;
         var username = req.body['username']

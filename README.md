@@ -6,6 +6,9 @@ This is a health & fitness app that tracks your diet and give you meal plans whi
 
 - [ ] Scan the bar code?
 - [ ] Take photo and parse the Nutrition Facts panels？
+- [ ] sign out?
+- [ ] 通过图片诊断糖尿病患者不能吃哪些食物？
+- [ ] food recommendation
 
 
 
