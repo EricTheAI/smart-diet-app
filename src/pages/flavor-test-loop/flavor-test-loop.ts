@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FlavorTestFinishPage } from '../flavor-test-finish/flavor-test-finish';
 import { TodayPage } from '../today/today';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
-import { TodayPage } from '../today/today';
 import { ScanPage } from '../scan/scan';
 import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
@@ -21,12 +19,6 @@ export class FlavorTestLoopPage {
   goToFlavorTestFinish(params){
     if (!params) params = {};
     this.navCtrl.push(FlavorTestFinishPage);
-  }goToToday(params){
-    if (!params) params = {};
-    this.navCtrl.push(TodayPage);
-  }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
   }goToToday(params){
     if (!params) params = {};
     this.navCtrl.push(TodayPage);

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TodayPage } from '../today/today';
-import { FoodConfirmPage } from '../food-confirm/food-confirm';
-import { TodayPage } from '../today/today';
 import { ScanPage } from '../scan/scan';
 import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
@@ -18,12 +16,6 @@ export class FlavorTestFinishPage {
   constructor(public navCtrl: NavController) {
   }
   goToToday(params){
-    if (!params) params = {};
-    this.navCtrl.push(TodayPage);
-  }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
-  }goToToday(params){
     if (!params) params = {};
     this.navCtrl.push(TodayPage);
   }goToScan(params){

@@ -31,7 +31,8 @@ import { CameraPage } from '../pages/camera/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpserviceProvider } from '../providers/httpservice/httpservice';
-
+import { Camera } from '@ionic-native/camera';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 @NgModule({
   declarations: [
     MyApp,
@@ -94,6 +95,8 @@ import { HttpserviceProvider } from '../providers/httpservice/httpservice';
   ],
   providers: [
     StatusBar,
+    Camera,
+    CameraPreview,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpserviceProvider
