@@ -22,12 +22,9 @@ Users.prototype = {
         self.taskDao.find(querySpec, function (err, items) {
             if (err) {
                 throw (err);
-                res.json({success:false, error: err});
+                res.json({success:false, error: err})
             }
-            if(items.length > 0)
-                res.json({success:true, id: items[0].id});
-            else
-                res.json({success:false});
+            res.json({success:true, id: items[0].id})
         });
     },
 
