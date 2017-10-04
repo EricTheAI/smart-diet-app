@@ -11,6 +11,10 @@ Users.prototype = {
         var self = this;
         var username = req.body['username']
         var password = req.body['password']
+        if(!username)
+        {
+            res.json({success:false, error: "username missing."});
+        }
         var querySpec = {
             query: 'SELECT * FROM root r WHERE r.username=@username',
             parameters: [{
@@ -18,7 +22,7 @@ Users.prototype = {
                 value: username
             }]
         };
-
+       
         self.taskDao.find(querySpec, function (err, items) {
             if (err) {
                 throw (err);
@@ -27,7 +31,7 @@ Users.prototype = {
             if(items.length > 0)
                 res.json({success:true, id: items[0].id});
             else
-                res.json({success:false});
+                res.json({success:false, error: "user does not exist."});
         });
     },
 
