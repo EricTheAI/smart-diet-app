@@ -14,6 +14,7 @@ Users.prototype = {
         if(!username)
         {
             res.json({success:false, error: "username missing."});
+            return;
         }
         var querySpec = {
             query: 'SELECT * FROM root r WHERE r.username=@username',
@@ -27,6 +28,7 @@ Users.prototype = {
             if (err) {
                 throw (err);
                 res.json({success:false, error: err});
+                return;
             }
             if(items.length > 0)
                 res.json({success:true, id: items[0].id});
@@ -38,6 +40,7 @@ Users.prototype = {
     register: function (req, res) {
         var self = this;
         var user = req.body;
+        console.log(user)
         user.type = "user"
         self.taskDao.addItem(user, function (err, doc) {
             if (err) {
