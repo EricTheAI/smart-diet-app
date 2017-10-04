@@ -24,7 +24,7 @@ Users.prototype = {
                 throw (err);
                 res.json({success:false, error: err})
             }
-            res.json({success:true})
+            res.json({success:true, id: items[0].id})
         });
     },
 
@@ -32,12 +32,12 @@ Users.prototype = {
         var self = this;
         var user = req.body;
         user.type = "user"
-        self.taskDao.addItem(user, function (err) {
+        self.taskDao.addItem(user, function (err, doc) {
             if (err) {
                 throw (err);
                 res.json({success:false})
             }
-            res.json({success:true})
+            res.json({success:true, id:doc.id})
         });
     },
 
