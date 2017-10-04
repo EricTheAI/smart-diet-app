@@ -38,7 +38,7 @@ Users.prototype = {
         self.taskDao.addItem(user, function (err, doc) {
             if (err) {
                 throw (err);
-                res.json({success:false})
+                res.json({success:false, error, err})
             }
             res.json({success:true, id:doc.id})
         });
