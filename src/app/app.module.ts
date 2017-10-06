@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { FoodConfirmPage } from '../pages/food-confirm/food-confirm';
 import { SearchResultsPage } from '../pages/search-results/search-results';
+import { DailyRecordPage } from '../pages/daily-record/daily-record';
 import { ChangeUsernamePage } from '../pages/change-username/change-username';
 import { GenderPage } from '../pages/gender/gender';
 import { GoalPage } from '../pages/goal/goal';
@@ -26,13 +27,11 @@ import { ManuallyAddFoodPage } from '../pages/manually-add-food/manually-add-foo
 import { FlavorTestFinishPage } from '../pages/flavor-test-finish/flavor-test-finish';
 import { FlavorTestLoopPage } from '../pages/flavor-test-loop/flavor-test-loop';
 import { CameraPage } from '../pages/camera/camera';
-import { HttpModule } from '@angular/http';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HttpserviceProvider } from '../providers/httpservice/httpservice';
-import { Camera } from '@ionic-native/camera';
-import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -45,6 +44,7 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
     ProfilePage,
     FoodConfirmPage,
     SearchResultsPage,
+    DailyRecordPage,
     ChangeUsernamePage,
     GenderPage,
     GoalPage,
@@ -63,7 +63,6 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -78,6 +77,7 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
     ProfilePage,
     FoodConfirmPage,
     SearchResultsPage,
+    DailyRecordPage,
     ChangeUsernamePage,
     GenderPage,
     GoalPage,
@@ -96,11 +96,8 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
   ],
   providers: [
     StatusBar,
-    Camera,
-    CameraPreview,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HttpserviceProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
