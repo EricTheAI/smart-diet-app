@@ -8,13 +8,14 @@
   <div id="foodConfirm-markdown2" style="text-align:center;" class="show-list-numbers-and-dots">
     <p style="color:#000000;font-size:20px;">
       <strong>
-        1
+        {{foodnumber.value}}
       </strong>
     </p>
   </div>
   <form id="foodConfirm-form16">
     <ion-item id="foodConfirm-range1">
-      <ion-range min="1" max="20" step="1" color="positive" value="1">
+      
+      <ion-range min="1" max="20" step="1" color="positive" value="1" #foodnum>
         <ion-label range-left>
           Quantity
         </ion-label>
