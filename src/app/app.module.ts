@@ -27,10 +27,14 @@ import { ManuallyAddFoodPage } from '../pages/manually-add-food/manually-add-foo
 import { FlavorTestFinishPage } from '../pages/flavor-test-finish/flavor-test-finish';
 import { FlavorTestLoopPage } from '../pages/flavor-test-loop/flavor-test-loop';
 import { CameraPage } from '../pages/camera/camera';
+import { HttpModule } from '@angular/http';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpserviceProvider } from '../providers/httpservice/httpservice';
+import { Camera } from '@ionic-native/camera';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -96,8 +101,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     StatusBar,
+    Camera,
+    CameraPreview,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpserviceProvider
   ]
 })
 export class AppModule {}

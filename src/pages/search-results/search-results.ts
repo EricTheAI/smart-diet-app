@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { TodayPage } from '../today/today';
+import { ScanPage } from '../scan/scan';
 import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ScanPage } from '../scan/scan';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
