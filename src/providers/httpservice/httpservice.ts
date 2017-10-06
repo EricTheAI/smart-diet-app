@@ -13,6 +13,7 @@ export class HttpserviceProvider {
   private data;
   private ID:String;
   private userdata:any;
+  private profile:any;
   private headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
   private options = new RequestOptions({ headers: this.headers });
   constructor(public http: Http) {
@@ -58,9 +59,25 @@ export class HttpserviceProvider {
   getID(){
     return this.ID;
   }
+  setUser(userdata: JSON){
+    this.userdata=userdata;
+  }
+  setprofile(profile:JSON){
+    this.profile=profile;
+  }
+  getUserFoodData(){
+    return new Promise(resolve => {
+      this.http.post('http://13.73.106.72/userfooddata',('userID='+this.ID),this.options)
+        .map(res => res.json())
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+        });
+    });
+  }
   userprofile(){
     return new Promise(resolve => {
-      this.http.post('http://13.73.106.72/profile',('type=userID&userID='+this.ID),this.options)
+      this.http.post('http://13.73.106.72/profile',('userID='+this.ID),this.options)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;

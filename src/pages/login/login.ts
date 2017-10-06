@@ -30,10 +30,16 @@ export class LoginPage {
       if (this.user.success==true){
         this.httpService.setID(this.user.id);
         alert("successful Login");
+        this.httpService.userprofile()
+        .then(data => {
+          this.user = data;
+        this.httpService.setUser(this.user);
         this.goToTab({});
+        });
       }
     });
   }
+  
   btnLogin(){
     this.loadlogin();
   }
