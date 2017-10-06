@@ -1,0 +1,10 @@
+
+//food. We save nutrients data of every food.
+{
+    "id":123213,
+    "energy":213,
+    "protein":21312,
+    "fat":123,
+    "carbohydrates":123123,
+    "sodium":123
+}
