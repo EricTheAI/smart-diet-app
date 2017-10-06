@@ -24,16 +24,16 @@ export class SignupPage {
     this.httpService.load(this.username.value,this.password.value)
     .then(data => {
       this.user = data;
-      console.log(this.user.success);
+      console.log(this.user);
       if (this.user.success==true){
-        alert("successful Login");
+        this.httpService.setID(this.user.id);
+        alert("successful Register");
         this.goToFlavorTestLoop({});
       }
     });
   }
 
   btnSignUp_click(){
-    console.log(this.username.value);
     this.loadSignup();
 
   }

@@ -55,9 +55,6 @@ export class ScanPage {
     this.ishidden=true;
   }
   btntakepicture(){
-    const time:Date=new Date();
-    console.log(time.getTime());
-    this.picture="R0lGODlhPQBEA";
     this.httpService.foodDectect(this.picture)
     .then(data => {
       this.user = data;

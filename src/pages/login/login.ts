@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { NavController,App } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { FlavorTestLoopPage } from '../flavor-test-loop/flavor-test-loop';
@@ -9,6 +9,7 @@ import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
 import { CameraPage } from '../camera/camera';
 import { TodayPage } from '../today/today';
 import {TabsControllerPage} from '../tabs-controller/tabs-controller';
+import {HttpserviceProvider} from '../../providers/httpservice/httpservice';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -16,7 +17,25 @@ import {TabsControllerPage} from '../tabs-controller/tabs-controller';
 export class LoginPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  constructor(public navCtrl: NavController,private app: App) {
+  constructor(public navCtrl: NavController,private app: App,private httpService: HttpserviceProvider) {
+  }
+  private user:any;
+  @ViewChild("username") username;
+  @ViewChild("password") password;
+  loadlogin(){
+    this.httpService.login(this.username.value,this.password.value)
+    .then(data => {
+      this.user = data;
+      console.log(this.user);
+      if (this.user.success==true){
+        this.httpService.setID(this.user.id);
+        alert("successful Login");
+        this.goToTab({});
+      }
+    });
+  }
+  btnLogin(){
+    this.loadlogin();
   }
   goToTab(params){
     if (!params) params = {};
