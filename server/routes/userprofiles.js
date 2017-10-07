@@ -9,17 +9,69 @@ function Profile(taskDao) {
 
 module.exports = Profile;
 Profile.prototype = {
-    update: function (req, res) {
+    getProfile: function (req, res) {
         var self = this;
-        blobSvc.createAppendBlobFromLocalFile('images', 'contest', 'test.png', function(error, result, response){
-            if(!error){
-               res.json({"result":result})
-            }else{
-              res.json({"result":error})
-            }
-          });
+        var userid = req.body['userid'];
+        var querySpec = {
+          query: 'SELECT * FROM root r WHERE r.id=@userid and r.type = "profile"',
+          parameters: [{
+              name: '@userid',
+              value: userid
+          }]
+      };
+      self.taskDao.find(querySpec, function (err, items) {
+        if (err) {
+            throw (err);
+        }
+        if(items.length > 0)
+          res.json(items[0]);
+        else
+          res.json({})
+        
+    });
     },
 
+    update: function (req, res) {
+      var self = this;
+      var profile = req.body;
+      profile.type = 'profile';
+      var querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id=@userid and r.type = "profile"',
+        parameters: [{
+            name: '@userid',
+            value: profile.userid
+        }]
+      };
+
+    self.taskDao.find(querySpec, function (err, items) {
+      if (err) {
+          throw (err);
+      }
+      if(items.length > 0)
+        {
+          self.taskDao.updateItem(profile, function (err) {
+            if (err) {
+                res.json({success:false, error:err});
+            } else {
+              res.json({success:true});
+            }
+        });
+        }
+      else
+      {
+        self.taskDao.addItem(profile, function (err, doc) {
+          if (err) {
+              throw (err);
+              res.json({success:false, error, err})
+              return;
+          }
+          res.json({success:true})
+      });
+      }
+     });
+
+      
+  },
 
 
 };
