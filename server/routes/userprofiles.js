@@ -62,7 +62,7 @@ Profile.prototype = {
         self.taskDao.addItem(profile, function (err, doc) {
           if (err) {
               throw (err);
-              res.json({success:false, error, err})
+              res.json({success:false, error: err})
               return;
           }
           res.json({success:true})
