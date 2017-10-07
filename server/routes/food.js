@@ -7,25 +7,18 @@ function Food(taskDao) {
 
 module.exports = Food;
 Food.prototype = {
-    login: function (req, res) {
+    confirm: function (req, res) {
         var self = this;
-        var username = req.body['username']
-        var password = req.body['password']
-        var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.username=@username',
-            parameters: [{
-                name: '@username',
-                value: username
-            }]
-        };
-
-        self.taskDao.find(querySpec, function (err, items) {
-            if (err) {
-                throw (err);
-                res.json({success:false, error: err})
-            }
-            res.json({success:true})
-        });
+        var record = req.body
+        console.log(log)
+        
+        // self.taskDao.addItem(user, function (err) {
+        //     if (err) {
+        //         throw (err);
+        //         res.json({success:false})
+        //     }
+        //     res.json({success:true})
+        // });
     },
 
     register: function (req, res) {
