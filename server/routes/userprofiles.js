@@ -46,6 +46,8 @@ Profile.prototype = {
     self.taskDao.find(querySpec, function (err, items) {
       if (err) {
           throw (err);
+          res.json({success:false, error:err});
+          return;
       }
       if(items.length > 0)
         {
