@@ -13,7 +13,7 @@ Profile.prototype = {
         var self = this;
         var userid = req.body['userid'];
         var querySpec = {
-          query: 'SELECT * FROM root r WHERE r.id=@userid and r.type = "profile"',
+          query: 'SELECT * FROM root r WHERE r.userid=@userid and r.type = "profile"',
           parameters: [{
               name: '@userid',
               value: userid
