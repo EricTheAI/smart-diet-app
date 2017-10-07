@@ -54,29 +54,33 @@ Users.prototype = {
             query: 'SELECT * FROM root r WHERE r.username=@username',
             parameters: [{
                 name: '@username',
-                value: username
+                value: user.username
             }]
         };
+        var succeded = true;
         self.taskDao.find(querySpec, function (err, items) {
             if (err) {
                 throw (err);
                 res.json({success:false, error: err});
+                succeded = false;
                 return;
             }
             if(items.length > 0)
             {
                 res.json({success:false, error: "Duplicated username"});
+                succeded = false;
                 return;
             }
-        });
-        user.type = "user"
-        user.password = md5(user.password)
-        self.taskDao.addItem(user, function (err, doc) {
-            if (err) {
-                throw (err);
-                res.json({success:false, error, err})
-            }
-            res.json({success:true, id:doc.id})
+            user.type = "user"
+            user.password = md5(user.password)
+            self.taskDao.addItem(user, function (err, doc) {
+                if (err) {
+                    throw (err);
+                    res.json({success:false, error, err})
+                    return;
+                }
+                res.json({success:true, id:doc.id})
+            });
         });
     },
 
