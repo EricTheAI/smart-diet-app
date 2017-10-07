@@ -6,5 +6,7 @@
     "protein":21312,
     "fat":123,
     "carbohydrates":123123,
-    "sodium":123
+    "sodium":123,
+    "imageUrl":"https://smartbiteediag117.blob.core.windows.net/images/"
+
 }

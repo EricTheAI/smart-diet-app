@@ -21,19 +21,40 @@ Food.prototype = {
         // });
     },
 
-    register: function (req, res) {
+    search: function (req, res) {
         var self = this;
-        var user = req.body;
-        user.type = "user"
-        self.taskDao.addItem(user, function (err) {
+        var username = req.body
+        res.json({food:"apple pie", fat: 12321, image:"https://smartbiteediag117.blob.core.windows.net/images/contest"});
+        return;
+        var querySpec = {
+            query: 'SELECT * FROM root r WHERE r.username=@username',
+            parameters: [{
+                name: '@username',
+                value: username
+            }]
+        };
+       
+        self.taskDao.find(querySpec, function (err, items) {
             if (err) {
                 throw (err);
-                res.json({success:false})
+                res.json({success:false, error: err});
+                return;
             }
-            res.json({success:true})
+            if(items.length > 0)
+            {
+                if(items[0].password == md5(password))
+                {
+                    res.json({success:true, id: items[0].id});
+                }
+                else
+                {
+                    res.json({success:false, error: "Wrong password."});
+                }
+            }
+            else
+                res.json({success:false, error: "User does not exist."});
         });
     },
-
     completeTask: function (req, res) {
         var self = this;
         var completedTasks = Object.keys(req.body);

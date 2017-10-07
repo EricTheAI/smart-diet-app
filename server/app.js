@@ -45,7 +45,7 @@ app.post('/addtask', taskList.addTask.bind(taskList));
 app.post('/completetask', taskList.completeTask.bind(taskList));
 app.post('/login',users.login.bind(users))
 app.post('/register',users.register.bind(users))
-app.post('/profile',profiles.update.bind(profiles))
+app.post('/profile/update',profiles.update.bind(profiles))
 app.post('/fooddetect', records.foodDetect.bind(records))
 app.post('/food/confirm',food.confirm.bind(food))
 
