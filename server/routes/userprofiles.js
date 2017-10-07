@@ -26,7 +26,7 @@ Profile.prototype = {
         if(items.length > 0)
           res.json(items[0]);
         else
-          res.json({})
+          res.json({success:false, error: "Don't have a profile."})
         
     });
     },
@@ -71,9 +71,5 @@ Profile.prototype = {
       });
       }
      });
-
-      
   },
-
-
 };
