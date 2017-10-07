@@ -48,10 +48,6 @@ TaskDao.prototype = {
 
     addItem: function (item, callback) {
         var self = this;
-
-        item.date = Date.now();
-        item.completed = false;
-
         self.client.createDocument(self.collection._self, item, function (err, doc) {
             if (err) {
                 callback(err);
@@ -70,8 +66,6 @@ TaskDao.prototype = {
                 callback(err);
 
             } else {
-                doc.completed = true;
-
                 self.client.replaceDocument(doc._self, doc, function (err, replaced) {
                     if (err) {
                         callback(err);
