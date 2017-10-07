@@ -32,7 +32,6 @@ export class SignupPage {
       }
     });
   }
-
   btnSignUp_click(){
     this.loadSignup();
 

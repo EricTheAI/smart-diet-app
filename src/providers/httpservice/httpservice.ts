@@ -12,8 +12,8 @@ import 'rxjs/add/operator/map';
 export class HttpserviceProvider {
   private data;
   private ID:String;
-  private userdata:any;
-  private profile:any;
+  private userdata:JSON;
+  private profile:JSON;
   private headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
   private options = new RequestOptions({ headers: this.headers });
   constructor(public http: Http) {
@@ -59,35 +59,23 @@ export class HttpserviceProvider {
   getID(){
     return this.ID;
   }
-  setUser(userdata: JSON){
-    this.userdata=userdata;
-  }
-  setprofile(profile:JSON){
-    this.profile=profile;
-  }
   getUserFoodData(){
-    return new Promise(resolve => {
       this.http.post('http://13.73.106.72/userfooddata',('userID='+this.ID),this.options)
         .map(res => res.json())
         .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
+          this.userdata = data;
         });
-    });
   }
   userprofile(){
-    return new Promise(resolve => {
       this.http.post('http://13.73.106.72/profile',('userID='+this.ID),this.options)
         .map(res => res.json())
         .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
+          this.profile = data;
         });
-    });
   }
-  userprofileUpdate(userData: Map<String,String>){
+  userprofileUpdate(userData:String,value:String){
     return new Promise(resolve => {
-      this.http.post('http://13.73.106.72/profile/update',('userID='+this.ID),this.options)
+      this.http.post('http://13.73.106.72/profile/update',("userID="+this.ID+"&" +userData+"="+ value),this.options)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -97,7 +85,7 @@ export class HttpserviceProvider {
   }
   search(food:String){
     return new Promise(resolve => {
-      this.http.post('http://13.73.106.72/search',('food='+food),this.options)
+      this.http.post('http://13.73.106.72/food/search',('food='+food),this.options)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -117,17 +105,7 @@ export class HttpserviceProvider {
       sent="food1=";
     }
     return new Promise(resolve => {
-      this.http.post('http://13.73.106.72/user/flavorfood',(sent),this.options)
-        .map(res => res.json())
-        .subscribe(data => {
-          this.data = data;
-          resolve(this.data);
-        });
-    });
-  }
-  getData(){
-    return new Promise(resolve => {
-      this.http.post('http://13.73.106.72/user/dailydata',('userID='+this.ID),this.options)
+      this.http.post('http://13.73.106.72/user/favorfood',(sent),this.options)
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -144,5 +122,17 @@ export class HttpserviceProvider {
           resolve(this.data);
         });
     });
+  }
+  confirmfood(food:any){
+    var day = new Date();
+    var test="{20171007"
+    this.userdata[day.getDate().toString()].push(food);
+    this.http.post('http://13.73.106.72/food/confirm',('userID='+this.ID+'&foodID='+2),this.options)
+    .map(res => res.json())
+    .subscribe(data => {
+      console.log(data);
+      this.profile = data;
+    });
+
   }
 }
