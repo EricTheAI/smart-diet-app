@@ -7,6 +7,7 @@ import { CameraPage } from '../camera/camera';
 import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 import {createBlobService} from 'azure-storage';
 import {HttpserviceProvider} from '../../providers/httpservice/httpservice';
+
 @Component({
   selector: 'page-scan',
   templateUrl: 'scan.html'
@@ -15,8 +16,10 @@ export class ScanPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
   private ishidden: Boolean=false;
-  constructor(public navCtrl: NavController,private cameraPreview: CameraPreview,public httpService: HttpserviceProvider) {
+  constructor(public navCtrl: NavController,private cameraPreview: CameraPreview,public httpService: HttpserviceProvider) { 
+
   }
+
   public picture: any;
   public user:any;
   initializePreview() {
@@ -97,4 +100,5 @@ export class ScanPage {
     if (!params) params = {};
     this.navCtrl.push(CameraPage);
   }
+  
 }

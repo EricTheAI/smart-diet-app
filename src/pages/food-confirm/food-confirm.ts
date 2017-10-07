@@ -1,9 +1,10 @@
 import { Component,ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TodayPage } from '../today/today';
+import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ScanPage } from '../scan/scan';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
-import { CameraPage } from '../camera/camera';
+import { CameraPage } from '../camera/camera'
 
 @Component({
   selector: 'page-food-confirm',
@@ -28,6 +29,7 @@ export class FoodConfirmPage {
     if (!params) params = {};
     this.navCtrl.push(ManuallyAddFoodPage);
   }goToCamera(params){
+  }goToScan(params){
     if (!params) params = {};
     this.navCtrl.push(CameraPage);
   }

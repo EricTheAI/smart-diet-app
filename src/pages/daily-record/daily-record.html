@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Daily Record
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content id="page23">
+  <ion-list id="dailyRecord-list17">
+    <ion-item-sliding>
+      <ion-item color="none" on-click="goToFoodConfirm()" id="dailyRecord-list-item14">
+        <ion-thumbnail item-left>
+          <img src="assets/img/A6rsql7XRYyR1BQHvxWu_Apple-Fruit-PNG-Transparent-Image.png" />
+        </ion-thumbnail>
+        <h2>
+          Apple
+        </h2>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="assertive">
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item-sliding>
+      <ion-item color="none" on-click="goToFoodConfirm()" id="dailyRecord-list-item30">
+        <ion-thumbnail item-left>
+          <img src="assets/img/5hLBOqj5S8GEyRwEtXQp_PNGPIX-COM-Sandwich-PNG-Transparent-Image-2.png" />
+        </ion-thumbnail>
+        <h2>
+          Sandwich
+        </h2>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="assertive">
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <button id="dailyRecord-button29" ion-button color="stable" block on-click="goToManuallyAddFood()">
+    <ion-icon name="create"></ion-icon>
+    Manually Add Food
+  </button>
+</ion-content>

@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { FoodConfirmPage } from '../pages/food-confirm/food-confirm';
 import { SearchResultsPage } from '../pages/search-results/search-results';
+import { DailyRecordPage } from '../pages/daily-record/daily-record';
 import { ChangeUsernamePage } from '../pages/change-username/change-username';
 import { GenderPage } from '../pages/gender/gender';
 import { GoalPage } from '../pages/goal/goal';
@@ -28,11 +29,13 @@ import { FlavorTestLoopPage } from '../pages/flavor-test-loop/flavor-test-loop';
 import { CameraPage } from '../pages/camera/camera';
 import { HttpModule } from '@angular/http';
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpserviceProvider } from '../providers/httpservice/httpservice';
 import { Camera } from '@ionic-native/camera';
 import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -45,6 +48,7 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
     ProfilePage,
     FoodConfirmPage,
     SearchResultsPage,
+    DailyRecordPage,
     ChangeUsernamePage,
     GenderPage,
     GoalPage,
@@ -78,6 +82,7 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
     ProfilePage,
     FoodConfirmPage,
     SearchResultsPage,
+    DailyRecordPage,
     ChangeUsernamePage,
     GenderPage,
     GoalPage,
