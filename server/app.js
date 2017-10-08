@@ -47,7 +47,7 @@ app.post('/fooddetect', records.foodDetect.bind(records))
 app.post('/food/confirm', food.confirm.bind(food))
 app.post('/food/search', food.search.bind(food))
 app.post('/food/all', food.all.bind(food))
-app.post('/record/create', records.Records.bind(records))
+app.post('/record/create', records.createRecord.bind(records))
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
