@@ -46,16 +46,13 @@ Profile.prototype = {
       }
       if (items.length > 0) {
         var doc = items[0];
-        console.log(doc)
         for(var key in profile)
         {
-          console.log(key)
           if(key in doc)
           {
             doc[key] = profile[key];
           }
         }
-        console.log(doc)
         self.taskDao.updateItem(doc, function (err) {
           if (err) {
             res.json({ success: false, error: err });

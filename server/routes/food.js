@@ -10,11 +10,11 @@ Food.prototype = {
     confirm: function (req, res) {
         var self = this;
         var record = req.body
-        self.taskDao.addItem(user, function (err) {
+        self.taskDao.addItem(record, function (err) {
             if (err) {
-                res.json({success:false})
+                res.json({success:false, error: err});
             }
-            res.json({success:true})
+            res.json({success:true});
         });
     },
 
