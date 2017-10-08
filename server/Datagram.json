@@ -1,7 +1,8 @@
 
 //food. We save nutrients data of every food.
 {
-    "id":123213,
+    "type":"food",
+    "name":"apple",
     "energy":213,
     "protein":21312,
     "fat":123,

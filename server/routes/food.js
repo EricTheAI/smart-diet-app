@@ -60,8 +60,6 @@ Food.prototype = {
     all: function (req, res) {
         var self = this;
         var username = req.body
-        res.json({food:"apple pie", fat: 12321, image:"https://smartbiteediag117.blob.core.windows.net/images/contest"});
-        return;
         var querySpec = {
             query: 'SELECT * FROM root r WHERE r.type="food"'
         };
@@ -72,7 +70,7 @@ Food.prototype = {
                 res.json({success:false, error: err});
                 return;
             }
-            res.json({success:true, food: foods});
+            res.json({success:true, food: food});
                
         });
     }
