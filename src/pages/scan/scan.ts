@@ -83,14 +83,12 @@ export class ScanPage {
         console.log(this.user);
         
       });
-      // blobSvc.createBlockBlobFromText('images', 'myblob', imageData, function(error, result, response){
-      // });
     }, (err) => {
       console.log(err);
       this.picture = 'assets/img/test.jpg';
     });
     this.picture="";
-    this.goToFoodConfirm("milk");
+    this.goToFoodConfirm(this.user.name);
   }
   goToToday(params){
     if (!params) params = {};

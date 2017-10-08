@@ -134,7 +134,6 @@ export class TodayPage {
       }]
   };
     
-            // 使用刚指定的配置项和数据显示图表。
             this.myChart.setOption(option);
   }
   ionViewDidLoad(){
