@@ -82,26 +82,5 @@ Users.prototype = {
                 res.json({success:true, id:doc.id})
             });
         });
-    },
-
-    completeTask: function (req, res) {
-        var self = this;
-        var completedTasks = Object.keys(req.body);
-
-        async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-            self.taskDao.updateItem(completedTask, function (err) {
-                if (err) {
-                    callback(err);
-                } else {
-                    callback(null);
-                }
-            });
-        }, function goHome(err) {
-            if (err) {
-                throw err;
-            } else {
-                res.redirect('/');
-            }
-        });
     }
 };

@@ -55,24 +55,25 @@ Food.prototype = {
                 res.json({success:false, error: "User does not exist."});
         });
     },
-    completeTask: function (req, res) {
-        var self = this;
-        var completedTasks = Object.keys(req.body);
 
-        async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-            self.taskDao.updateItem(completedTask, function (err) {
-                if (err) {
-                    callback(err);
-                } else {
-                    callback(null);
-                }
-            });
-        }, function goHome(err) {
+    //Get all food data.
+    all: function (req, res) {
+        var self = this;
+        var username = req.body
+        res.json({food:"apple pie", fat: 12321, image:"https://smartbiteediag117.blob.core.windows.net/images/contest"});
+        return;
+        var querySpec = {
+            query: 'SELECT * FROM root r WHERE r.type="food"'
+        };
+       
+        self.taskDao.find(querySpec, function (err, items) {
             if (err) {
-                throw err;
-            } else {
-                res.redirect('/');
+                throw (err);
+                res.json({success:false, error: err});
+                return;
             }
+            res.json({success:true, food: foods});
+               
         });
     }
 };
