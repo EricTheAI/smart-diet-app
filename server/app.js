@@ -30,7 +30,6 @@ var docDbClient = new DocumentDBClient(config.host, {
   masterKey: config.authKey
 });
 var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
-var taskList = new TaskList(taskDao);
 var users = new Users(taskDao)
 var profiles = new Profile(taskDao)
 var records = new Record(taskDao)
