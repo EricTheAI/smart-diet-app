@@ -1,0 +1,13 @@
+
+//food. We save nutrients data of every food.
+{
+    "type":"food",
+    "name":"apple",
+    "energy":213,
+    "protein":21312,
+    "fat":123,
+    "carbohydrates":123123,
+    "sodium":123,
+    "imageUrl":"https://smartbiteediag117.blob.core.windows.net/images/"
+
+}
