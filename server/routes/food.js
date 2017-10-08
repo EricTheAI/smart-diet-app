@@ -70,7 +70,7 @@ Food.prototype = {
                 res.json({success:false, error: err});
                 return;
             }
-            res.json({success:true, food: food});
+            res.json({success:true, food: items});
                
         });
     }
