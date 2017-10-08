@@ -41,12 +41,19 @@ Profile.prototype = {
 
     self.taskDao.find(querySpec, function (err, items) {
       if (err) {
-        throw (err);
         res.json({ success: false, error: err });
         return;
       }
       if (items.length > 0) {
-        self.taskDao.updateItem(profile, function (err) {
+        var doc = items[0];
+        for(var key in profile)
+        {
+          if(key in doc)
+          {
+            doc[key] = profile[key];
+          }
+        }
+        self.taskDao.updateItem(doc, function (err) {
           if (err) {
             res.json({ success: false, error: err });
           } else {
@@ -57,7 +64,6 @@ Profile.prototype = {
       else {
         self.taskDao.addItem(profile, function (err, doc) {
           if (err) {
-            throw (err);
             res.json({ success: false, error: err })
             return;
           }
