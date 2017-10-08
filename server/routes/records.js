@@ -22,17 +22,27 @@ Records.prototype = {
 
     getRecords: function (req, res) {
         var self = this;
-        var image = req.body['image']
-        var image_name = Date.now()
-        console.log(image)
-        blobSvc.createAppendBlobFromText('images', image_name.toString(), image, function (error, result, response) {
-            if (!error) {
-                res.json({ food: "banana" })
-            } else {
-                res.json({ "result": error })
+        var userid = req.body["userid"];
+
+        var querySpec = {
+            query: 'SELECT * FROM root r WHERE r.userid=@userid and r.type="record"',
+            parameters: [{
+                name: '@userid',
+                value: userid
+            }]
+        };
+
+        self.taskDao.find(querySpec, function (err, items) {
+            if (err) {
+                res.json({ success: false, error: err });
+                return;
             }
-        });
-
-    },
-
+            if (items.length > 0) {
+                    res.json({records:items});
+                }
+                else {
+                    res.json({});
+                }
+            })
+        },
 };
