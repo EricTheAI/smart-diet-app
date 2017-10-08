@@ -9,7 +9,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Users = require('./routes/users');
-var TaskList = require('./routes/tasklist');
 var TaskDao = require('./models/taskDao');
 var Profile = require('./routes/userprofiles');
 var Record = require('./routes/records')
@@ -41,9 +40,6 @@ var food = new Food(taskDao)
 taskDao.init();
 
 //register routers.
-app.get('/', taskList.showTasks.bind(taskList));
-app.post('/addtask', taskList.addTask.bind(taskList));
-app.post('/completetask', taskList.completeTask.bind(taskList));
 app.post('/login', users.login.bind(users))
 app.post('/register', users.register.bind(users))
 app.post('/profile', profiles.getProfile.bind(profiles))
