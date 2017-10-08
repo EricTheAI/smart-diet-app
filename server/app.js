@@ -48,9 +48,10 @@ app.post('/register',users.register.bind(users))
 app.post('/profile',profiles.getProfile.bind(profiles))
 app.post('/profile/update',profiles.update.bind(profiles))
 app.post('/fooddetect', records.foodDetect.bind(records))
+
 app.post('/food/confirm',food.confirm.bind(food))
 app.post('/food/search',food.search.bind(food))
-
+app.post('/food/all',food.all.bind(food))
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
