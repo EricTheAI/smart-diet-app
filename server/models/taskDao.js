@@ -2,12 +2,12 @@ var DocumentDBClient = require('documentdb').DocumentClient;
 var docdbUtils = require('./docdbUtils');
 
 function TaskDao(documentDBClient, databaseId, collectionId) {
-  this.client = documentDBClient;
-  this.databaseId = databaseId;
-  this.collectionId = collectionId;
+    this.client = documentDBClient;
+    this.databaseId = databaseId;
+    this.collectionId = collectionId;
 
-  this.database = null;
-  this.collection = null;
+    this.database = null;
+    this.collection = null;
 }
 
 module.exports = TaskDao;

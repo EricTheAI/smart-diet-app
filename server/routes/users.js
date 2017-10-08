@@ -3,7 +3,7 @@ var async = require('async');
 var md5 = require("blueimp-md5");
 
 function Users(taskDao) {
-  this.taskDao = taskDao;
+    this.taskDao = taskDao;
 }
 
 module.exports = Users;
@@ -12,9 +12,8 @@ Users.prototype = {
         var self = this;
         var username = req.body['username']
         var password = req.body['password']
-        if(!username)
-        {
-            res.json({success:false, error: "username missing."});
+        if (!username) {
+            res.json({ success: false, error: "username missing." });
             return;
         }
         var querySpec = {
@@ -24,26 +23,22 @@ Users.prototype = {
                 value: username
             }]
         };
-       
+
         self.taskDao.find(querySpec, function (err, items) {
             if (err) {
-                throw (err);
-                res.json({success:false, error: err});
+                res.json({ success: false, error: err });
                 return;
             }
-            if(items.length > 0)
-            {
-                if(items[0].password == md5(password))
-                {
-                    res.json({success:true, id: items[0].id});
+            if (items.length > 0) {
+                if (items[0].password == md5(password)) {
+                    res.json({ success: true, id: items[0].id });
                 }
-                else
-                {
-                    res.json({success:false, error: "Wrong password."});
+                else {
+                    res.json({ success: false, error: "Wrong password." });
                 }
             }
             else
-                res.json({success:false, error: "User does not exist."});
+                res.json({ success: false, error: "User does not exist." });
         });
     },
 
@@ -60,14 +55,12 @@ Users.prototype = {
         var succeded = true;
         self.taskDao.find(querySpec, function (err, items) {
             if (err) {
-                throw (err);
-                res.json({success:false, error: err});
+                res.json({ success: false, error: err });
                 succeded = false;
                 return;
             }
-            if(items.length > 0)
-            {
-                res.json({success:false, error: "Duplicated username"});
+            if (items.length > 0) {
+                res.json({ success: false, error: "Duplicated username" });
                 succeded = false;
                 return;
             }
@@ -75,11 +68,10 @@ Users.prototype = {
             user.password = md5(user.password)
             self.taskDao.addItem(user, function (err, doc) {
                 if (err) {
-                    throw (err);
-                    res.json({success:false, error, err})
+                    res.json({ success: false, error, err })
                     return;
                 }
-                res.json({success:true, id:doc.id})
+                res.json({ success: true, id: doc.id })
             });
         });
     }
