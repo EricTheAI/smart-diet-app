@@ -30,9 +30,10 @@ Records.prototype = {
     createRecord: function (req, res) {
         var self = this;
         var record = req.body
+        record.type = "record";
         self.taskDao.addItem(record, function (err) {
             if (err) {
-                res.json({ success: false })
+                res.json({ success: false,  error, err})
             }
             res.json({ success: true })
         });
