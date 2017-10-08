@@ -12,22 +12,16 @@
         <ion-label>
           Name
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
-      </ion-item>
-      <ion-item id="signup-input2">
-        <ion-label>
-          Email
-        </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="text" placeholder="" #username></ion-input>
       </ion-item>
       <ion-item id="signup-input3">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input type="password" placeholder="" #password></ion-input>
       </ion-item>
     </ion-list>
-    <button id="signup-button1" ion-button color="stable" block on-click="goToFlavorTestLoop()">
+    <button id="signup-button1" ion-button color="stable" block (click)="btnSignUp_click()">
       Sign up
     </button>
   </form>

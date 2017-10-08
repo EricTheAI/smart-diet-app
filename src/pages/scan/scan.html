@@ -1,11 +1,11 @@
-<ion-content id="page3">
+<ion-content id="page3" *ngIf="istake==false">
   <div class="spacer" style="width:320px;height:428px;" id="scan-spacer7"></div>
-  <button id="scan-button6" ion-button color="positive" block on-click="goToFoodConfirm()">
+  <div class="spacer" style="width:320px;height:43px;" id="scan-spacer20"></div>
+  <button id="scan-button6" ion-button color="positive" block on-click="btntakepicture()">
     <ion-icon name="camera"></ion-icon>
     Take Photo
   </button>
-  <button id="scan-button8" ion-button color="stable" block on-click="goToManuallyAddFood()">
-    <ion-icon name="create"></ion-icon>
-    Manually Add Food
-  </button>
 </ion-content>
+<ion-content id="page4" *ngIf="istake==true">
+    <img id="pic" [attr.src]="picture" width="100%" height="91%"/>
+  </ion-content>

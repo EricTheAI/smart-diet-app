@@ -4,7 +4,7 @@
       Weight
     </ion-title>
     <ion-buttons end>
-      <button ion-button solid>
+      <button ion-button solid (click)="updateweight()">
         Finish
       </button>
     </ion-buttons>
@@ -15,7 +15,7 @@
   <form id="weight-form14">
     <ion-item id="weight-input11">
       <ion-label></ion-label>
-      <ion-input type="number" placeholder="your wight (kg)"></ion-input>
+      <ion-input name="weight" type="number" placeholder="your weight (kg)" [(ngModel)]="value"></ion-input>
     </ion-item>
   </form>
 </ion-content>

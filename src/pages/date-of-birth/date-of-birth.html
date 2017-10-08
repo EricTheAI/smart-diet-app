@@ -4,7 +4,7 @@
       Date of Birth
     </ion-title>
     <ion-buttons end>
-      <button ion-button solid>
+      <button ion-button solid (click)="updateweight()">
         Finish
       </button>
     </ion-buttons>
@@ -15,7 +15,7 @@
   <form id="dateOfBirth-form9">
     <ion-item id="dateOfBirth-input8">
       <ion-label></ion-label>
-      <ion-input type="date" placeholder="e.g. 1994.6.19"></ion-input>
+      <ion-input name="dob" type="date" placeholder="e.g. 1994.6.19" [(ngModel)]="value"></ion-input>
     </ion-item>
   </form>
 </ion-content>

@@ -4,7 +4,7 @@
       Height
     </ion-title>
     <ion-buttons end>
-      <button ion-button solid>
+      <button ion-button solid (click)="updateheight()">
         Finish
       </button>
     </ion-buttons>
@@ -15,7 +15,7 @@
   <form id="height-form11">
     <ion-item id="height-input9">
       <ion-label></ion-label>
-      <ion-input type="number" placeholder="your height (cm)"></ion-input>
+      <ion-input name="height" type="number" placeholder="your height (cm)" [(ngModel)]="value"></ion-input>
     </ion-item>
   </form>
 </ion-content>

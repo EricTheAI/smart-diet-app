@@ -1,19 +1,22 @@
-<ion-content id="page2">
+<ion-content id="page2" >
+  <div  class="spacer" style="width:320px;height:16px;" id="today-spacer20"></div>
   <form id="today-form4">
-    <ion-searchbar placeholder="search your food" name="" id="today-search2"></ion-searchbar>
+    <ion-searchbar (ionCancel)="endsearch()" (ionInput)="getItems($event)" placeholder="search your food" name="" id="today-search2" showCancelButton="true"></ion-searchbar>
   </form>
-  <div id="today-markdown1" style="text-align:center;" class="show-list-numbers-and-dots">
-    <p style="color:#000000;">
-      (ECharts visualization below)
-    </p>
-  </div>
-  <div id="today-container2">
-    <div>
-      <img src="assets/img/RKOJkYGnTa6FODJWpVFj_WX20170924-1533042x.png" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
-    </div>
-    <div class="spacer" style="width:320px;height:36px;" id="today-spacer18"></div>
-  </div>
-  <h4 id="today-heading1" style="color:#3F3E3E;text-align:center;">
+  <div class="list" style="height:100%;" *ngIf="issearch==true">
+  <ion-list >
+    <ion-item *ngFor="let item of items" (click)="goToFoodConfirm(item)">
+      {{ item }}
+    </ion-item>
+    <button id="searchResults-button9" ion-button color="stable" block on-click="goToManuallyAddFood()">
+      <ion-icon name="create"></ion-icon>
+      Manually Add Food
+    </button>
+  </ion-list>
+</div>
+  <div  class="today-container2" id ="today-container2" style="height:400px;"></div>
+  <div  class="spacer" style="width:320px;height:36px;" id="today-spacer18"></div>
+  <h4   id="today-heading1" style="color:#3F3E3E;text-align:center;">
     Food Suggestion
   </h4>
   <ion-list id="today-list5">

@@ -10,19 +10,19 @@
     <ion-list id="login-list2">
       <ion-item id="login-input4">
         <ion-label>
-          Email
+          Name
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="text" placeholder="" #username></ion-input>
       </ion-item>
       <ion-item id="login-input5">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
+        <ion-input type="password" placeholder="" #password></ion-input>
       </ion-item>
     </ion-list>
     <div class="spacer" style="height:40px;" id="login-spacer1"></div>
-    <button id="login-button2" ion-button color="stable" block on-click="goToToday()">
+    <button id="login-button2" ion-button color="stable" block on-click="btnLogin()">
       Log in
     </button>
     <button id="login-button3" ion-button clear color="positive" block on-click="goToSignup()">

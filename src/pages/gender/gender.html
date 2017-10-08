@@ -4,7 +4,7 @@
       Gender
     </ion-title>
     <ion-buttons end>
-      <button ion-button solid>
+      <button ion-button solid (click)="clickbtn()">
         Finish
       </button>
     </ion-buttons>
@@ -17,13 +17,13 @@
       <ion-label>
         Male
       </ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox [checked]="ismale" (click)="updatemale()"></ion-checkbox>
     </ion-item>
     <ion-item id="gender-checkbox2">
       <ion-label>
         Female
       </ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox [checked]="isfemale" (click)="updatefemale()"></ion-checkbox>
     </ion-item>
   </form>
 </ion-content>

@@ -11,7 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { FoodConfirmPage } from '../pages/food-confirm/food-confirm';
 import { SearchResultsPage } from '../pages/search-results/search-results';
-import { ChangeUsernamePage } from '../pages/change-username/change-username';
+import { DailyRecordPage } from '../pages/daily-record/daily-record';
 import { GenderPage } from '../pages/gender/gender';
 import { GoalPage } from '../pages/goal/goal';
 import { DateOfBirthPage } from '../pages/date-of-birth/date-of-birth';
@@ -26,10 +26,14 @@ import { ManuallyAddFoodPage } from '../pages/manually-add-food/manually-add-foo
 import { FlavorTestFinishPage } from '../pages/flavor-test-finish/flavor-test-finish';
 import { FlavorTestLoopPage } from '../pages/flavor-test-loop/flavor-test-loop';
 import { CameraPage } from '../pages/camera/camera';
-
-
+import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';  
+import { Health } from '@ionic-native/health';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpserviceProvider } from '../providers/httpservice/httpservice';
+import { Camera } from '@ionic-native/camera';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     FoodConfirmPage,
     SearchResultsPage,
-    ChangeUsernamePage,
+    DailyRecordPage,
     GenderPage,
     GoalPage,
     DateOfBirthPage,
@@ -61,6 +65,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    CommonModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -75,7 +81,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     FoodConfirmPage,
     SearchResultsPage,
-    ChangeUsernamePage,
+    DailyRecordPage,
     GenderPage,
     GoalPage,
     DateOfBirthPage,
@@ -93,8 +99,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     StatusBar,
+    Camera,
+    CameraPreview,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Health,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpserviceProvider
   ]
 })
 export class AppModule {}
