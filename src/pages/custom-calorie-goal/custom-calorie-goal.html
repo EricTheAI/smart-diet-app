@@ -4,7 +4,7 @@
       Custom Calorie Goal
     </ion-title>
     <ion-buttons end>
-      <button ion-button solid>
+      <button ion-button solid (click)="updatecalorie()">
         Finish
       </button>
     </ion-buttons>
@@ -15,7 +15,7 @@
   <form id="customCalorieGoal-form13">
     <ion-item id="customCalorieGoal-input10">
       <ion-label></ion-label>
-      <ion-input type="number" placeholder="your calorie goal"></ion-input>
+      <ion-input type="number" placeholder="your calorie goal" [(ngModel)]="value"></ion-input>
     </ion-item>
   </form>
 </ion-content>

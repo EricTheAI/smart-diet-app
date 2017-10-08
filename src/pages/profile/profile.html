@@ -3,6 +3,11 @@
     <ion-title>
       Profile
     </ion-title>
+    <ion-buttons *ngIf="first==true" end (click)="goToTab()">
+      <button ion-button icon-only>
+        Finish
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page7">
@@ -10,11 +15,6 @@
     <ion-item color="none" id="profile-list-item21">
       Profile picture
       <ion-icon name="image" item-right></ion-icon>
-    </ion-item>
-    <ion-item color="none" on-click="goToChangeUsername()" id="profile-list-item22">
-      Username
-      <ion-note item-right></ion-note>
-      <ion-icon name="arrow-forward" item-right></ion-icon>
     </ion-item>
   </ion-list>
   <div class="spacer" style="width:300px;height:31px;" id="profile-spacer11"></div>

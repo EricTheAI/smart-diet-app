@@ -7,6 +7,8 @@ import { FoodConfirmPage } from '../food-confirm/food-confirm';
 import { ScanPage } from '../scan/scan';
 import { ManuallyAddFoodPage } from '../manually-add-food/manually-add-food';
 import { CameraPage } from '../camera/camera';
+import { MePage } from '../me/me';
+import { ProfilePage } from '../profile/profile';
 import {HttpserviceProvider} from '../../providers/httpservice/httpservice';
 @Component({
   selector: 'page-signup',
@@ -28,7 +30,8 @@ export class SignupPage {
       if (this.user.success==true){
         this.httpService.setID(this.user.id);
         alert("successful Register");
-        this.goToFlavorTestLoop({});
+        this.goToProfile({"register":true});
+        this.httpService.FoodData();
       }
     });
   }
@@ -36,7 +39,6 @@ export class SignupPage {
     this.loadSignup();
 
   }
-  
   goToFlavorTestLoop(params){
     if (!params) params = {};
     this.navCtrl.push(FlavorTestLoopPage);
@@ -58,5 +60,13 @@ export class SignupPage {
   }goToCamera(params){
     if (!params) params = {};
     this.navCtrl.push(CameraPage);
+  }
+  goToProfile(params){
+    if (!params) {
+      params = {};
+      this.navCtrl.push(ProfilePage);
+    }else{
+      this.navCtrl.push(ProfilePage,params);
+    }
   }
 }

@@ -2,8 +2,13 @@
 html, body, ion-app, ion-content, ion-page, .nav-decor {
     background-color: transparent !important;
     }
-
-
+    div.today-container2{
+        width:100%;
+     }
+    div.list{
+        height:100%;
+        overflow-y: hidden;
+    }
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

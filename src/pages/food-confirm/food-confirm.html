@@ -1,9 +1,9 @@
 <ion-content padding id="page8">
   <h1 id="foodConfirm-heading2" style="color:#5A5555;text-align:center;">
-    Sandwich?
+    {{food}}
   </h1>
   <div>
-    <img src="assets/img/3FOgvejCSouLEAQnlBxD_PNGPIX-COM-Sandwich-PNG-Transparent-Image-2.png" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+    <img [attr.src]="image"/>
   </div>
   <div id="foodConfirm-markdown2" style="text-align:center;" class="show-list-numbers-and-dots">
     <p style="color:#000000;font-size:20px;">
@@ -25,15 +25,16 @@
   <button id="foodConfirm-button26" ion-button clear color="light"></button>
   <button id="foodConfirm-button27" ion-button clear color="light"></button>
   <button id="foodConfirm-button28" ion-button clear color="light"></button>
-  <button id="foodConfirm-button24" ion-button icon-only color="light" small>
-    <ion-icon name="heart-outline"></ion-icon>
+  <button id="foodConfirm-button24" ion-button icon-right color="light" small end (click)="btnfavor()">
+    <ion-icon name="heart" *ngIf="favor==true"></ion-icon>
+    <ion-icon name="heart-outline" *ngIf="favor==false"></ion-icon>
     Add to Favourite
   </button>
-  <button id="foodConfirm-button4" ion-button color="balanced" block icon-left on-click="goToToday()">
+  <button id="foodConfirm-button4" ion-button color="balanced" block icon-left on-click="Addfood()">
     <ion-icon name="checkmark-circle"></ion-icon>
     Yes
   </button>
-  <button id="foodConfirm-button5" ion-button color="assertive" block icon-left on-click="goToScan()">
+  <button id="foodConfirm-button5" ion-button color="assertive" block icon-left on-click="Back()">
     <ion-icon name="close-circle"></ion-icon>
     No
   </button>

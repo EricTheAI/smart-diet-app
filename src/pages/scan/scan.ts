@@ -22,7 +22,9 @@ export class ScanPage {
 
   public picture: any;
   public user:any;
+  public istake:boolean=false;
   initializePreview() {
+    this.picture="";
     // Make the width and height of the preview equal 
     // to the width and height of the app's window
     let cameraPreviewOpts: CameraPreviewOptions = {
@@ -46,6 +48,7 @@ export class ScanPage {
       });
   }
   ionViewWillEnter(){
+    this.istake=false;
     if (this.ishidden){
       this.cameraPreview.show();
       this.ishidden=false;
@@ -56,6 +59,7 @@ export class ScanPage {
   ionViewWillLeave(){
     this.cameraPreview.hide();
     this.ishidden=true;
+    this.istake=false;
   }
   btntakepicture(){
     this.httpService.foodDectect(this.picture)
@@ -71,6 +75,8 @@ export class ScanPage {
     }
     this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
       this.picture='data:image/jpeg;base64,' + imageData;
+      this.cameraPreview.hide();
+      this.istake=true;
       this.httpService.foodDectect(this.picture)
       .then(data => {
         this.user = data;
@@ -83,13 +89,21 @@ export class ScanPage {
       console.log(err);
       this.picture = 'assets/img/test.jpg';
     });
+    this.picture="";
+    this.goToFoodConfirm("milk");
   }
   goToToday(params){
     if (!params) params = {};
     this.navCtrl.push(TodayPage);
   }goToFoodConfirm(params){
-    if (!params) params = {};
-    this.navCtrl.push(FoodConfirmPage);
+    if (!params) {
+      params = {}
+      this.navCtrl.push(FoodConfirmPage);
+    } else{
+      params={"name":params};
+      console.log(params);
+      this.navCtrl.push(FoodConfirmPage,params);
+    }
   }goToScan(params){
     if (!params) params = {};
     this.navCtrl.push(ScanPage);

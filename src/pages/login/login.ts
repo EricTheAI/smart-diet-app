@@ -32,6 +32,7 @@ export class LoginPage {
         alert("successful Login");
         this.httpService.userprofile();
         this.httpService.getUserFoodData();
+        this.httpService.FoodData();
         this.goToTab({});
       }
     });

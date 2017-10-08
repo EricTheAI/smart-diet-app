@@ -4,7 +4,7 @@
       Goal
     </ion-title>
     <ion-buttons end>
-      <button ion-button solid>
+      <button ion-button solid (click)="clickbtn()">
         Finish
       </button>
     </ion-buttons>
@@ -17,19 +17,19 @@
       <ion-label>
         Lose weight
       </ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox [checked]="losew" (click)="updateloseweight()"></ion-checkbox>
     </ion-item>
     <ion-item id="goal-checkbox4">
       <ion-label>
-        Keep
+        Keep Fit
       </ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox [checked]="keepfit" (click)="updatekeepfit()"></ion-checkbox>
     </ion-item>
     <ion-item id="goal-checkbox5">
       <ion-label>
         Get muscle
       </ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox [checked]="getmuscle" (click)="updategetmuscle()"></ion-checkbox>
     </ion-item>
   </form>
 </ion-content>

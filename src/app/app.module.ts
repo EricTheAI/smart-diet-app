@@ -12,7 +12,6 @@ import { ProfilePage } from '../pages/profile/profile';
 import { FoodConfirmPage } from '../pages/food-confirm/food-confirm';
 import { SearchResultsPage } from '../pages/search-results/search-results';
 import { DailyRecordPage } from '../pages/daily-record/daily-record';
-import { ChangeUsernamePage } from '../pages/change-username/change-username';
 import { GenderPage } from '../pages/gender/gender';
 import { GoalPage } from '../pages/goal/goal';
 import { DateOfBirthPage } from '../pages/date-of-birth/date-of-birth';
@@ -28,8 +27,8 @@ import { FlavorTestFinishPage } from '../pages/flavor-test-finish/flavor-test-fi
 import { FlavorTestLoopPage } from '../pages/flavor-test-loop/flavor-test-loop';
 import { CameraPage } from '../pages/camera/camera';
 import { HttpModule } from '@angular/http';
-
-
+import { CommonModule } from '@angular/common';  
+import { Health } from '@ionic-native/health';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpserviceProvider } from '../providers/httpservice/httpservice';
@@ -49,7 +48,6 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
     FoodConfirmPage,
     SearchResultsPage,
     DailyRecordPage,
-    ChangeUsernamePage,
     GenderPage,
     GoalPage,
     DateOfBirthPage,
@@ -68,6 +66,7 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
   imports: [
     BrowserModule,
     HttpModule,
+    CommonModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -83,7 +82,6 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
     FoodConfirmPage,
     SearchResultsPage,
     DailyRecordPage,
-    ChangeUsernamePage,
     GenderPage,
     GoalPage,
     DateOfBirthPage,
@@ -104,6 +102,7 @@ import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, Camer
     Camera,
     CameraPreview,
     SplashScreen,
+    Health,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpserviceProvider
   ]
