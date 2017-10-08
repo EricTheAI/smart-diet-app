@@ -1,5 +1,3 @@
-var DocumentDBClient = require('documentdb').DocumentClient;
-var async = require('async');
 var md5 = require("blueimp-md5");
 
 function Users(taskDao) {

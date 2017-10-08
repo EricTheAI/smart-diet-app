@@ -1,12 +1,12 @@
-var DocumentDBClient = require('documentdb').DocumentClient;
-var async = require('async');
-
+//Food data of each kind of food like energy, fat from reliable source.
 function Food(taskDao) {
     this.taskDao = taskDao;
 }
 
 module.exports = Food;
 Food.prototype = {
+
+    //User can manualy add a kind of food that is not in our database.
     confirm: function (req, res) {
         var self = this;
         var record = req.body

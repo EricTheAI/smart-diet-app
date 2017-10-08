@@ -16,8 +16,6 @@ var Food = require('./routes/food')
 
 //setup express.
 var app = express();
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
@@ -43,7 +41,6 @@ app.post('/login', users.login.bind(users))
 app.post('/register', users.register.bind(users))
 app.post('/profile', profiles.getProfile.bind(profiles))
 app.post('/profile/update', profiles.update.bind(profiles))
-app.post('/fooddetect', records.foodDetect.bind(records))
 app.post('/food/confirm', food.confirm.bind(food))
 app.post('/food/search', food.search.bind(food))
 app.post('/food/all', food.all.bind(food))
